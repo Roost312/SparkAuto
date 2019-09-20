@@ -1,13 +1,11 @@
 ﻿@page
-@model SparkAuto.Pages.ServiceTypes.EditModel
-
+@model SparkAuto.Pages.ServiceTypes.DetailsModel
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Details";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h2>Edit Service Type</h2>
-
+<h2>Service Type Details</h2>
 <form method="post">
     <div class="border backgroundWhite">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,7 +15,7 @@
                 <label asp-for="ServiceType.Name" class="control-label"></label>
             </div>
             <div class="col-5">
-                <input asp-for="ServiceType.Name" class="form-control" />
+                <input disabled asp-for="ServiceType.Name" class="form-control" />
                 <span asp-validation-for="ServiceType.Name" class="text-danger"></span>
             </div>
         </div>
@@ -26,7 +24,7 @@
                 <label asp-for="ServiceType.Price" class="control-label"></label>
             </div>
             <div class="col-5">
-                <input asp-for="ServiceType.Price" class="form-control" />
+                <input disabled asp-for="ServiceType.Price" class="form-control" />
                 <span asp-validation-for="ServiceType.Price" class="text-danger"></span>
             </div>
         </div>
@@ -34,7 +32,7 @@
             <div class="col-5 offset-2 ">
                 <div class="row">
                     <div class="col-6">
-                        <input type="submit" class="btn btn-info form-control" value="Save" />
+                        <a class="btn btn-info form-control" asp-page="Edit" asp-route-id="@Model.ServiceType.Id">Edit</a>
                     </div>
                     <div class="col-6">
                         <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
@@ -45,6 +43,3 @@
     </div>
 </form>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

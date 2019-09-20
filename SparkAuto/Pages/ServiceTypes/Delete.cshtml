@@ -1,12 +1,11 @@
 ﻿@page
-@model SparkAuto.Pages.ServiceTypes.EditModel
-
+@model SparkAuto.Pages.ServiceTypes.DeleteModel
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Delete";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h2>Edit Service Type</h2>
+<h2>Delete Service Type</h2>
 
 <form method="post">
     <div class="border backgroundWhite">
@@ -17,7 +16,7 @@
                 <label asp-for="ServiceType.Name" class="control-label"></label>
             </div>
             <div class="col-5">
-                <input asp-for="ServiceType.Name" class="form-control" />
+                <input disabled asp-for="ServiceType.Name" class="form-control" />
                 <span asp-validation-for="ServiceType.Name" class="text-danger"></span>
             </div>
         </div>
@@ -26,7 +25,7 @@
                 <label asp-for="ServiceType.Price" class="control-label"></label>
             </div>
             <div class="col-5">
-                <input asp-for="ServiceType.Price" class="form-control" />
+                <input disabled asp-for="ServiceType.Price" class="form-control" />
                 <span asp-validation-for="ServiceType.Price" class="text-danger"></span>
             </div>
         </div>
@@ -34,7 +33,7 @@
             <div class="col-5 offset-2 ">
                 <div class="row">
                     <div class="col-6">
-                        <input type="submit" class="btn btn-info form-control" value="Save" />
+                        <button type="submit" class="btn btn-danger form-control">Delete</button>
                     </div>
                     <div class="col-6">
                         <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
@@ -44,7 +43,3 @@
         </div>
     </div>
 </form>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
