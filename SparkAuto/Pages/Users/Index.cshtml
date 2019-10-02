@@ -1,0 +1,57 @@
+﻿@page
+@model SparkAuto.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<form>
+        <br />
+        <br />
+            <div class="row">
+                <div class="col-6">
+                    <h2>Customer List</h2>
+                </div>
+                <div class="col-6 text-right">
+                    <a asp-page="/Account/Register" asp-area="Identity" class="btn btn-info"><i class="fa fa-plus"></i> Create New Customer</a>
+                </div>
+            </div>
+            <br />
+                    <table class="table table-striped border">
+                        <tr class="table-secondary">
+                            <th>
+                                @Html.DisplayNameFor(m => m.ApplicationUserList[0].Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(m => m.ApplicationUserList[0].PhoneNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(m => m.ApplicationUserList[0].Email)
+                            </th>
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model.ApplicationUserList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(m => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(m => item.Email)
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a class="btn btn-primary text-white" asp-page="Edit" asp-route-id="@item.Id">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-success text-white" asp-page="Details" asp-route-id="@item.Id">
+                                            <i class="fa fa-list-alt"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+</form>
