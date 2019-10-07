@@ -50,7 +50,7 @@ namespace SparkAuto.TagHelpers
                 tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
 
                 tag.InnerHtml.Append(i.ToString()); //display page number as string after href tag 
-                result.InnerHtml.Append(tag.ToString()); //closes the div tag
+                result.InnerHtml.AppendHtml(tag); //closes the div tag
             }
 
             output.Content.AppendHtml(result.InnerHtml); //outputs to wherever tag helper is placed in our code

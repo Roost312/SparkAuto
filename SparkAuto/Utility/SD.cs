@@ -10,5 +10,8 @@ namespace SparkAuto.Utility
         //login roles
         public const string AdminEndUser = "Admin";
         public const string CustomerEndUser = "Customer";
+
+        //Items per page
+        public const int PaginationUserPageSize = 2;
     }
 }
