@@ -58,6 +58,12 @@ namespace SparkAuto
                 fb.AppSecret = "30410fad2f60ebd02208b1ad510a14ef";
             });
 
+            services.AddAuthentication().AddGoogle(go =>
+            {
+                go.ClientId = "762715406569-50ors3oh8qstdentj9va37j7j1a2qp2e.apps.googleusercontent.com";
+                go.ClientSecret = "0LbLTx3YR6jn7CI99lfq-BDF";
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
