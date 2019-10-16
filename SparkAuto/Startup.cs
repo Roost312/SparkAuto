@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using SparkAuto.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using SparkAuto.Email;
 
 namespace SparkAuto
 {
@@ -45,6 +47,16 @@ namespace SparkAuto
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            //add 3rd party email service
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<EmailOptions>(Configuration); //appsettings.json
+
+            //add facebook login
+            services.AddAuthentication().AddFacebook(fb =>
+            {
+                fb.AppId = "525573808008173";
+                fb.AppSecret = "30410fad2f60ebd02208b1ad510a14ef";
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

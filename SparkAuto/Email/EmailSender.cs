@@ -23,7 +23,7 @@ namespace SparkAuto.Email
             var client = new SendGridClient(Options.SendGridKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("admin@yahoo.com", "Spark Auto"),
+                From = new EmailAddress("admin@spark.com", "Spark Auto"),
                 Subject = subject,
                 PlainTextContent = htmlMessage,
                 HtmlContent = htmlMessage
