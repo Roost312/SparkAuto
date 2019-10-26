@@ -15,6 +15,9 @@ namespace SparkAuto.Pages.Cars
     {
         private readonly ApplicationDbContext _db;
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         //binding to our view model for car and cust
         [BindProperty]
         public CarAndCustomerViewModel CarAndCustVM { get; set; }
