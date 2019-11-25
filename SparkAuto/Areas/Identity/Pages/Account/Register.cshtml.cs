@@ -131,13 +131,6 @@ namespace SparkAuto.Areas.Identity.Pages.Account
                         await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
                         _logger.LogInformation("User created a new account with password.");
                     }
-
-                    
-
-                    
-
-
-                    
                 }
                 foreach (var error in result.Errors)
                 {
